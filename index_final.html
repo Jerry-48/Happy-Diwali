@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪔 શુભ દિવાળી · Diwali Celebration</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Authentic Heritage Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Hind+Vadodara:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --terracotta-dark: #180604;
+            --terracotta-mid: #2d0c07;
+            --sindoor: #c82817;
+            --haldi: #f4b41a;
+            --marigold: #ff7700;
+            --brass-light: #f6e095;
+            --brass-mid: #d4a843;
+            --brass-dark: #7a5813;
+            --khadi-cream: #fbf3e4;
+            --khadi-aged: #efe0c2;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--terracotta-dark);
+            background-image:
+                radial-gradient(circle at 50% 88%, rgba(217, 92, 18, 0.28) 0%, rgba(120, 22, 8, 0.35) 45%, #120402 100%);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #fcecd2;
+            cursor: crosshair;
+        }
+
+        .font-royal {
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .font-hindi {
+            font-family: 'Hind Vadodara', sans-serif;
+        }
+
+        .font-devanagari {
+            font-family: 'Hind Vadodara', sans-serif;
+        }
+
+        /* ==========================================
+           TACTILE KHADI & HAMMERED BRASS NOISE OVERLAY
+           ========================================== */
+        .heritage-grain {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            pointer-events: none;
+            opacity: 0.13;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* ==========================================
+           1. BANARASI BROCADE & ZARI CURTAINS
+           ========================================== */
+        #curtain-stage {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            display: flex;
+            overflow: hidden;
+            pointer-events: auto;
+            transition: visibility 2.2s;
+        }
+
+        #curtain-stage.opened {
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .banarasi-curtain {
+            width: 51.5%;
+            height: 100%;
+            position: relative;
+            transition: transform 2.1s cubic-bezier(0.62, 0.04, 0.22, 1.0), filter 1.8s ease;
+            /* Deep Crimson Banarasi Silk with Pleats + Woven Butti Pattern */
+            background-color: #54080e;
+            background-image:
+                /* Woven Gold Butti Motifs */
+                radial-gradient(circle at 25px 25px, rgba(244, 180, 26, 0.22) 2.5px, transparent 3.5px),
+                radial-gradient(circle at 75px 75px, rgba(244, 180, 26, 0.18) 3px, transparent 4px),
+                /* Deep 3D Velvet Drape Folds */
+                repeating-linear-gradient(90deg,
+                    rgba(18, 1, 3, 0.85) 0px,
+                    rgba(84, 8, 14, 0.2) 32px,
+                    rgba(155, 22, 30, 0.45) 60px,
+                    rgba(64, 5, 10, 0.4) 92px,
+                    rgba(15, 1, 3, 0.9) 128px);
+            background-size: 100px 100px, 100px 100px, 100% 100%;
+            box-shadow: inset 0 -70px 120px rgba(0, 0, 0, 0.9), 0 0 80px rgba(0, 0, 0, 0.98);
+        }
+
+        .curtain-left {
+            transform-origin: top left;
+            border-right: 14px solid transparent;
+            border-image: repeating-linear-gradient(180deg, #f6e095 0px, #b8860b 12px, #7a1c12 18px, #f6e095 28px) 14;
+            box-shadow: 25px 0 65px rgba(0, 0, 0, 0.95);
+        }
+
+        .curtain-right {
+            transform-origin: top right;
+            margin-left: -3%;
+            border-left: 14px solid transparent;
+            border-image: repeating-linear-gradient(180deg, #f6e095 0px, #b8860b 12px, #7a1c12 18px, #f6e095 28px) 14;
+            box-shadow: -25px 0 65px rgba(0, 0, 0, 0.95);
+        }
+
+        /* Heavy Woven Kanjeevaram / Banarasi Zari Hem at Bottom */
+        .zari-hem {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 76px;
+            background:
+                linear-gradient(180deg, #7a5813 0%, #f6e095 15%, #c59b27 50%, #f4b41a 85%, #5c3d06 100%);
+            border-top: 4px double #fff5cc;
+            box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+        }
+
+        .zari-hem::before {
+            content: '';
+            position: absolute;
+            inset: 6px 0;
+            background-image: repeating-linear-gradient(90deg,
+                    transparent 0px,
+                    transparent 16px,
+                    rgba(110, 12, 18, 0.65) 16px,
+                    rgba(110, 12, 18, 0.65) 28px);
+        }
+
+        /* Curtain Parting Physics */
+        #curtain-stage.opened .curtain-left {
+            transform: translateX(-94%) scaleX(0.55) rotate(-3deg);
+            filter: brightness(0.55);
+        }
+
+        #curtain-stage.opened .curtain-right {
+            transform: translateX(94%) scaleX(0.55) rotate(3deg);
+            filter: brightness(0.55);
+        }
+
+        #curtain-stage.opened #seal-medallion {
+            opacity: 0;
+            transform: translate(-50%, -25%) scale(0.55);
+            pointer-events: none;
+        }
+
+        /* ==========================================
+           2. HANGING BRASS TEMPLE BELLS & TORAN
+           ========================================== */
+        @keyframes bellSwing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            20% {
+                transform: rotate(14deg);
+            }
+
+            40% {
+                transform: rotate(-11deg);
+            }
+
+            60% {
+                transform: rotate(7deg);
+            }
+
+            80% {
+                transform: rotate(-4deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .bell-chain {
+            transform-origin: top center;
+            transition: transform 0.3s ease;
+        }
+
+        .bell-chain.ringing {
+            animation: bellSwing 1.4s ease-out;
+        }
+
+        .bell-chain:hover {
+            animation: bellSwing 1.4s ease-out;
+        }
+
+        @keyframes garlandSway {
+
+            0%,
+            100% {
+                transform: rotate(-0.8deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotate(0.8deg) translateY(2px);
+            }
+        }
+
+        .toran-sway {
+            transform-origin: 50% 0%;
+            animation: garlandSway 4.8s ease-in-out infinite;
+        }
+
+        /* ==========================================
+           3. HANDMADE KHADI PARCHMENT & TAMRA-PATRA
+           ========================================== */
+        .khadi-patrika {
+            background-color: var(--khadi-cream);
+            background-image:
+                radial-gradient(circle at 50% 100%, rgba(255, 160, 40, 0.32), transparent 65%),
+                radial-gradient(circle at 0% 0%, rgba(168, 110, 42, 0.22), transparent 45%),
+                radial-gradient(circle at 100% 0%, rgba(168, 110, 42, 0.22), transparent 45%),
+                linear-gradient(180deg, #fcf5e8 0%, #f3e2c3 100%);
+            color: #3d1208;
+            border: 3px solid #b58326;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.92),
+                0 0 55px rgba(244, 155, 26, 0.28),
+                inset 0 0 0 6px #7a1c12,
+                inset 0 0 0 9px #d4a843,
+                inset 0 0 35px rgba(138, 75, 18, 0.35);
+            position: relative;
+        }
+
+        /* Dark Royal Terracotta Sanad / Altar Frame for Stage 3 */
+        .royal-mandapa-card {
+            background:
+                radial-gradient(circle at 50% 95%, rgba(235, 115, 18, 0.28) 0%, transparent 65%),
+                linear-gradient(180deg, rgba(46, 11, 7, 0.96) 0%, rgba(24, 6, 4, 0.98) 100%);
+            border: 2px solid #c59b27;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.95),
+                0 0 50px rgba(244, 150, 20, 0.22),
+                inset 0 0 0 4px #5e1109,
+                inset 0 0 0 6px rgba(212, 168, 67, 0.55),
+                inset 0 0 45px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Traditional Parchment Scroll with Wooden/Brass Rollers */
+        .parchment-scroll {
+            background: linear-gradient(90deg, #d7be92 0%, #fbf2df 12%, #fdf7ea 50%, #fbf2df 88%, #d7be92 100%);
+            color: #3b1006;
+            border-top: 2px solid #b38428;
+            border-bottom: 2px solid #b38428;
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.7),
+                inset 0 8px 18px rgba(120, 68, 15, 0.25),
+                inset 0 -8px 18px rgba(120, 68, 15, 0.25);
+            position: relative;
+        }
+
+        .scroll-roller {
+            height: 12px;
+            margin-left: -10px;
+            margin-right: -10px;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    #5c3809 0%, #f6e095 8%, #8f5b14 16%,
+                    #47190c 20%, #6b2814 50%, #47190c 80%,
+                    #8f5b14 84%, #f6e095 92%, #5c3809 100%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
+        }
+
+        /* Molten Gold Foil Calligraphy */
+        .molten-gold-text {
+            background: linear-gradient(180deg, #fff8d6 0%, #f7cb4d 40%, #c88a1b 75%, #fde694 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 22px rgba(244, 158, 26, 0.45));
+        }
+
+        /* Realistic Multi-Layer Diya Flame Physics */
+        @keyframes realFlame {
+            0% {
+                transform: scale(1, 1) rotate(-1.5deg);
+            }
+
+            25% {
+                transform: scale(0.96, 1.06) rotate(2deg) skewX(-2deg);
+            }
+
+            50% {
+                transform: scale(1.03, 0.95) rotate(-1deg) skewX(1.5deg);
+            }
+
+            75% {
+                transform: scale(0.97, 1.08) rotate(2.5deg);
+            }
+
+            100% {
+                transform: scale(1.02, 1.01) rotate(-2deg);
+            }
+        }
+
+        .flame-group {
+            transform-origin: 60px 64px;
+            animation: realFlame 1.7s infinite ease-in-out alternate;
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .flame-unlit {
+            opacity: 0;
+            transform: scale(0.1);
+            pointer-events: none;
+        }
+
+        .flame-lit {
+            opacity: 1;
+            filter: drop-shadow(0 0 12px rgba(255, 175, 20, 0.95)) drop-shadow(0 0 28px rgba(255, 90, 0, 0.8));
+        }
+
+        /* Authentic Brass & Sindoor Buttons */
+        .btn-sindoor {
+            background: linear-gradient(180deg, #d9381e 0%, #9e1909 55%, #6e0e04 100%);
+            border: 2px solid #f2c14e;
+            color: #fff6d6;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(255, 230, 160, 0.6);
+            transition: all 0.25s ease;
+        }
+
+        .btn-sindoor:hover {
+            background: linear-gradient(180deg, #ed472b 0%, #b5200d 55%, #821206 100%);
+            box-shadow: 0 8px 28px rgba(217, 56, 30, 0.65), 0 0 18px rgba(244, 180, 26, 0.55);
+            transform: translateY(-2px);
+        }
+
+        .btn-brass {
+            background: linear-gradient(180deg, #f6e095 0%, #d4a843 45%, #9c6f16 100%);
+            border: 2px solid #fff5c0;
+            color: #2e0903;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.8), inset 0 1px 2px #ffffff;
+            transition: all 0.25s ease;
+        }
+
+        .btn-brass:hover {
+            filter: brightness(1.08);
+            box-shadow: 0 8px 28px rgba(244, 180, 26, 0.65);
+            transform: translateY(-2px);
+        }
+
+        /* Slow Rangoli Spin */
+        @keyframes slowRangoliSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rangoli-spin {
+            animation: slowRangoliSpin 90s linear infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    
+/* ===== Footer: Made with love by Sujal ===== */
+#site-footer{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:8px 10px 10px;text-align:center;background:linear-gradient(transparent,rgba(18,4,2,.92) 55%);pointer-events:none}
+#site-footer p{color:#f6e095;font-weight:700;font-size:1rem;text-shadow:0 0 14px rgba(255,170,40,.6)}
+#site-footer .soc{display:flex;gap:10px;justify-content:center;margin-top:6px;pointer-events:auto}
+#site-footer .soc a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#f6e095;border:1.5px solid #d4a843;background:rgba(43,10,5,.9);transition:all .25s}
+#site-footer .soc a:hover{transform:translateY(-4px) scale(1.1);background:#f6e095;color:#2e0903;box-shadow:0 0 18px rgba(255,200,80,.8)}
+#site-footer svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+</head>
+
+<body class="relative select-none">
+
+    <!-- Tactile Khadi & Brass Grain Texture -->
+    <div class="heritage-grain"></div>
+
+    <!-- =====================================================
+         INTERACTIVE CANVAS: Kandils, Phuljhari, Anar, Chakri & Sky Shells
+         ===================================================== -->
+    <canvas id="festive-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+    <!-- =====================================================
+         TRADITIONAL CARVED TEMPLE JHAROKHA ARCH & MARIGOLD TORAN
+         ===================================================== -->
+    <header class="fixed top-0 left-0 w-full z-40 pointer-events-none">
+        <!-- Lush Marigold (Genda Phool) & Mango Leaf (Aam Patta) Bandhanwar -->
+        <svg viewBox="0 0 1440 145" preserveAspectRatio="none"
+            class="w-full h-16 sm:h-24 md:h-28 drop-shadow-[0_12px_20px_rgba(0,0,0,0.9)]">
+            <defs>
+                <!-- Carved Brass Header Beam -->
+                <linearGradient id="brassBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#7a5813" />
+                    <stop offset="35%" stop-color="#f6e095" />
+                    <stop offset="70%" stop-color="#b8860b" />
+                    <stop offset="100%" stop-color="#3d2604" />
+                </linearGradient>
+                <!-- Mango Leaf Gradient -->
+                <linearGradient id="mangoLeaf" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#4d7c0f" />
+                    <stop offset="60%" stop-color="#15803d" />
+                    <stop offset="100%" stop-color="#052e16" />
+                </linearGradient>
+                <!-- Fluffy Orange Marigold Flower -->
+                <radialGradient id="gendaOrange" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#7c2d12" />
+                    <stop offset="25%" stop-color="#ea580c" />
+                    <stop offset="65%" stop-color="#fb923c" />
+                    <stop offset="92%" stop-color="#fed7aa" />
+                    <stop offset="100%" stop-color="#ea580c" stop-opacity="0" />
+                </radialGradient>
+                <!-- Fluffy Yellow Haldi Marigold Flower -->
+                <radialGradient id="gendaYellow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#b45309" />
+                    <stop offset="30%" stop-color="#f59e0b" />
+                    <stop offset="70%" stop-color="#fde047" />
+                    <stop offset="92%" stop-color="#fef9c3" />
+                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+                </radialGradient>
+
+                <!-- Reusable Mango Leaf + Marigold Cluster -->
+                <g id="mangoCluster">
+                    <path d="M 0,10 Q -14,32 0,58 Q 14,32 0,10 Z" fill="url(#mangoLeaf)" stroke="#84cc16"
+                        stroke-width="0.6" />
+                    <path d="M 0,12 L 0,54" stroke="#bef264" stroke-width="0.8" opacity="0.6" />
+                    <circle cx="0" cy="14" r="10" fill="url(#gendaOrange)" />
+                </g>
+
+                <!-- Reusable Marigold Scallop Swag (240px wide) -->
+                <g id="toranScallop">
+                    <!-- Mango Leaves Row -->
+                    <use href="#mangoCluster" x="20" y="4" />
+                    <use href="#mangoCluster" x="60" y="4" />
+                    <use href="#mangoCluster" x="100" y="4" />
+                    <use href="#mangoCluster" x="140" y="4" />
+                    <use href="#mangoCluster" x="180" y="4" />
+                    <use href="#mangoCluster" x="220" y="4" />
+                    <!-- Thick Garland of Alternating Orange & Yellow Marigold Blossoms -->
+                    <circle cx="0" cy="22" r="16" fill="url(#gendaYellow)" />
+                    <circle cx="22" cy="42" r="15" fill="url(#gendaOrange)" />
+                    <circle cx="46" cy="60" r="16" fill="url(#gendaYellow)" />
+                    <circle cx="72" cy="74" r="15" fill="url(#gendaOrange)" />
+                    <circle cx="96" cy="84" r="16" fill="url(#gendaYellow)" />
+                    <circle cx="120" cy="88" r="17" fill="url(#gendaOrange)" />
+                    <circle cx="144" cy="84" r="16" fill="url(#gendaYellow)" />
+                    <circle cx="168" cy="74" r="15" fill="url(#gendaOrange)" />
+                    <circle cx="194" cy="60" r="16" fill="url(#gendaYellow)" />
+                    <circle cx="218" cy="42" r="15" fill="url(#gendaOrange)" />
+                    <circle cx="240" cy="22" r="16" fill="url(#gendaYellow)" />
+                    <!-- Vertical Jasmine & Marigold Ladi Tassel at Each Junction -->
+                    <line x1="120" y1="88" x2="120" y2="128" stroke="#fde047" stroke-width="3" stroke-dasharray="4 3" />
+                    <circle cx="120" cy="130" r="8" fill="url(#gendaOrange)" />
+                </g>
+            </defs>
+
+            <!-- Top Carved Brass Arch Beam -->
+            <rect x="0" y="0" width="1440" height="16" fill="url(#brassBeam)" />
+            <line x1="0" y1="15" x2="1440" y2="15" stroke="#fff6cc" stroke-width="1.5" />
+
+            <!-- 6 Swaying Marigold Toran Scallops Across Screen -->
+            <g class="toran-sway">
+                <use href="#toranScallop" x="0" y="0" />
+                <use href="#toranScallop" x="240" y="0" />
+                <use href="#toranScallop" x="480" y="0" />
+                <use href="#toranScallop" x="720" y="0" />
+                <use href="#toranScallop" x="960" y="0" />
+                <use href="#toranScallop" x="1200" y="0" />
+            </g>
+        </svg>
+
+        <!-- Interactive Hanging Brass Temple Bells (Ghanti) Left & Right -->
+        <div class="fixed top-3 left-3 sm:left-8 z-50 pointer-events-auto flex gap-3 sm:gap-6">
+            <button onclick="ringTempleBell(this, 528)" title="Click to Ring Temple Bell (Ghanti)"
+                class="bell-chain cursor-pointer focus:outline-none group">
+                <svg class="w-10 h-28 sm:w-14 sm:h-36 drop-shadow-[0_10px_15px_rgba(0,0,0,0.85)]" viewBox="0 0 60 150">
+                    <defs>
+                        <linearGradient id="brassBell" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#6b4c0b" />
+                            <stop offset="30%" stop-color="#f6e095" />
+                            <stop offset="55%" stop-color="#d4a843" />
+                            <stop offset="85%" stop-color="#8c6210" />
+                            <stop offset="100%" stop-color="#4a3204" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Brass Chain Links -->
+                    <line x1="30" y1="0" x2="30" y2="75" stroke="url(#brassBell)" stroke-width="4"
+                        stroke-dasharray="7 3" />
+                    <!-- Bell Crown -->
+                    <circle cx="30" cy="78" r="6" fill="url(#brassBell)" />
+                    <!-- Traditional Flared Temple Bell Body -->
+                    <path d="M18 82 C18 82 14 112 6 126 L54 126 C46 112 42 82 42 82 Z" fill="url(#brassBell)"
+                        stroke="#fff3b0" stroke-width="0.8" />
+                    <ellipse cx="30" cy="126" rx="24" ry="5" fill="#4a3204" stroke="#f6e095" stroke-width="1" />
+                    <!-- Bell Clapper -->
+                    <circle cx="30" cy="130" r="4.5" fill="#f6e095" />
+                </svg>
+            </button>
+            <button onclick="ringTempleBell(this, 660)" title="Click to Ring Temple Bell (Ghanti)"
+                class="bell-chain hidden sm:block cursor-pointer focus:outline-none -mt-4">
+                <svg class="w-11 h-28 drop-shadow-[0_10px_15px_rgba(0,0,0,0.85)]" viewBox="0 0 60 150">
+                    <line x1="30" y1="0" x2="30" y2="65" stroke="url(#brassBell)" stroke-width="3.5"
+                        stroke-dasharray="7 3" />
+                    <circle cx="30" cy="68" r="5" fill="url(#brassBell)" />
+                    <path d="M19 72 C19 72 15 100 8 114 L52 114 C45 100 41 72 41 72 Z" fill="url(#brassBell)"
+                        stroke="#fff3b0" stroke-width="0.8" />
+                    <ellipse cx="30" cy="114" rx="22" ry="4.5" fill="#4a3204" stroke="#f6e095" stroke-width="1" />
+                    <circle cx="30" cy="118" r="4" fill="#f6e095" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Right Side Temple Bell & Sound Control -->
+        <div class="fixed top-3 right-3 sm:right-8 z-50 pointer-events-auto flex items-start gap-3 sm:gap-5">
+            <button id="sound-toggle-btn" onclick="toggleAudio()" title="Toggle Temple Chimes & Crackle"
+                class="mt-12 sm:mt-16 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#2b0a05]/95 hover:bg-[#421008] border border-[#d4a843] text-[#f6e095] text-xs sm:text-sm font-semibold shadow-[0_6px_20px_rgba(0,0,0,0.85)] transition active:scale-95 cursor-pointer">
+                <span id="sound-icon">🔔</span>
+                <span id="sound-label" class="hidden md:inline">નાદ • Sound On</span>
+            </button>
+
+            <button onclick="ringTempleBell(this, 594)" title="Click to Ring Temple Bell (Ghanti)"
+                class="bell-chain cursor-pointer focus:outline-none">
+                <svg class="w-10 h-28 sm:w-14 sm:h-36 drop-shadow-[0_10px_15px_rgba(0,0,0,0.85)]" viewBox="0 0 60 150">
+                    <line x1="30" y1="0" x2="30" y2="75" stroke="url(#brassBell)" stroke-width="4"
+                        stroke-dasharray="7 3" />
+                    <circle cx="30" cy="78" r="6" fill="url(#brassBell)" />
+                    <path d="M18 82 C18 82 14 112 6 126 L54 126 C46 112 42 82 42 82 Z" fill="url(#brassBell)"
+                        stroke="#fff3b0" stroke-width="0.8" />
+                    <ellipse cx="30" cy="126" rx="24" ry="5" fill="#4a3204" stroke="#f6e095" stroke-width="1" />
+                    <circle cx="30" cy="130" r="4.5" fill="#f6e095" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         STAGE 1: HEAVY BANARASI ZARI CURTAINS & SILK DORI CORD
+         ===================================================== -->
+    <div id="curtain-stage">
+        <!-- Left Banarasi Brocade Panel -->
+        <div class="banarasi-curtain curtain-left">
+            <!-- Traditional Golden Kairi (Paisley) Corner Motif -->
+            <div class="absolute bottom-24 left-8 opacity-45 hidden sm:block">
+                <svg class="w-32 h-32 text-[#f6e095]" viewBox="0 0 100 100" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <path d="M15 85 C15 45 45 15 80 15 C65 35 65 65 40 80 C28 87 15 85 15 85 Z"
+                        fill="rgba(244,180,26,0.12)" />
+                    <circle cx="42" cy="52" r="10" />
+                    <circle cx="42" cy="52" r="4" fill="currentColor" />
+                    <path d="M10 92 L90 92 M8 8 L8 88" />
+                </svg>
+            </div>
+            <div class="zari-hem"></div>
+        </div>
+
+        <!-- Right Banarasi Brocade Panel -->
+        <div class="banarasi-curtain curtain-right">
+            <!-- Traditional Golden Kairi (Paisley) Corner Motif -->
+            <div class="absolute bottom-24 right-8 opacity-45 hidden sm:block">
+                <svg class="w-32 h-32 text-[#f6e095] scale-x-[-1]" viewBox="0 0 100 100" fill="none"
+                    stroke="currentColor" stroke-width="1.8">
+                    <path d="M15 85 C15 45 45 15 80 15 C65 35 65 65 40 80 C28 87 15 85 15 85 Z"
+                        fill="rgba(244,180,26,0.12)" />
+                    <circle cx="42" cy="52" r="10" />
+                    <circle cx="42" cy="52" r="4" fill="currentColor" />
+                    <path d="M10 92 L90 92 M8 8 L8 88" />
+                </svg>
+            </div>
+            <div class="zari-hem"></div>
+        </div>
+
+        <!-- Center Brass "Shubh Labh" Lotus Medallion & Silk Pull-Cord (Dori) -->
+        <div id="seal-medallion"
+            class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-1000 w-[92%] max-w-md text-center">
+            <!-- Golden Silk Tie Cord Across Curtain Seam -->
+            <div
+                class="w-40 h-2 mx-auto -mb-4 rounded-full bg-gradient-to-r from-[#7a5813] via-[#f6e095] to-[#7a5813] shadow-lg">
+            </div>
+
+            <div class="royal-mandapa-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+                <!-- Auspicious Sanskrit Invocation -->
+                <div
+                    class="flex items-center justify-center gap-3 text-[#f6e095] text-xs sm:text-sm font-devanagari tracking-widest mb-2">
+                    <span> શુભ </span>
+                    <span>•</span>
+                    <span>॥ શ્રી ગણેશાય નમઃ ॥</span>
+                    <span>•</span>
+                    <span> લાભ </span>
+                </div>
+
+                <!-- Ornate Brass Urli Diya Seal -->
+                <div class="relative w-24 h-24 mx-auto my-2 flex items-center justify-center">
+                    <div class="absolute inset-0 rounded-full bg-amber-500/25 blur-xl"></div>
+                    <svg class="w-24 h-24 relative z-10" viewBox="0 0 120 120">
+                        <!-- Octagonal Brass Seal Plate -->
+                        <polygon points="60,4 99,20 116,60 99,99 60,116 20,99 4,60 20,20" fill="#3b0c06"
+                            stroke="#f6e095" stroke-width="2.5" />
+                        <circle cx="60" cy="60" r="44" fill="none" stroke="#d4a843" stroke-width="1.2"
+                            stroke-dasharray="4 3" />
+                        <!-- Realistic Multi-Layered Teardrop Flame -->
+                        <g class="flame-group flame-lit">
+                            <path d="M60 16 C75 36 78 52 60 64 C42 52 45 36 60 16 Z" fill="#ff6a00" />
+                            <path d="M60 26 C70 41 72 52 60 61 C48 52 50 41 60 26 Z" fill="#ffd000" />
+                            <path d="M60 38 C65 47 66 53 60 59 C54 53 55 47 60 38 Z" fill="#fffdf2" />
+                            <ellipse cx="60" cy="58" rx="4" ry="2.5" fill="#38bdf8" opacity="0.75" />
+                        </g>
+                        <!-- Carved Brass Diya Bowl -->
+                        <path d="M26 64 Q60 98 94 64 L84 59 Q60 70 36 59 Z" fill="url(#brassBell)" stroke="#fff3b0"
+                            stroke-width="1.8" />
+                    </svg>
+                </div>
+
+                <h1 class="font-royal text-2xl sm:text-4xl font-bold molten-gold-text tracking-wide mb-2">
+                    Shubh Deepavali
+                </h1>
+                <p class="text-[#f5deb3] text-base sm:text-lg italic mb-6 leading-relaxed">
+                    Step into our candlelit courtyard of clay diyas, marigold garlands, and timeless Diwali blessings.
+                </p>
+
+                <!-- Tactile Brass & Sindoor Pull-Cord Button -->
+                <button onclick="openCurtains()"
+                    class="btn-sindoor w-full py-3.5 px-6 rounded-xl font-bold text-base sm:text-lg tracking-wide cursor-pointer flex items-center justify-center gap-3 group">
+                    <span>🪔</span>
+                    <span>દ્વાર ખોલો • Pull Silk Cord to Enter</span>
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">➔</span>
+                </button>
+
+                <!-- Hanging Resham Silk Tassel (Latkan) Below Medallion -->
+                <div onclick="openCurtains()" class="mt-4 inline-flex flex-col items-center cursor-pointer group"
+                    title="Pull Silk Tassel">
+                    <div class="w-1 h-6 bg-gradient-to-b from-[#f6e095] to-[#b8860b]"></div>
+                    <div class="w-4 h-4 rounded-full bg-[#d4a843] border border-[#fff3b0]"></div>
+                    <div
+                        class="w-7 h-9 -mt-1 bg-gradient-to-b from-[#d9381e] to-[#7a0916] rounded-b-lg border-t-2 border-[#f6e095] group-hover:translate-y-1 transition-transform">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         MAIN COURTYARD STAGE (Revealed After Curtain Parts)
+         ===================================================== -->
+    <main
+        class="relative z-20 w-full h-full flex items-center justify-center px-3 sm:px-6 pt-16 pb-24 overflow-y-auto no-scrollbar">
+
+        <!-- -------------------------------------------------
+             STAGE 2: AUTHENTIC KHADI PATRIKA (NAME INVITATION CARD)
+             ------------------------------------------------- -->
+        <section id="name-stage"
+            class="w-full max-w-lg transition-all duration-700 opacity-0 scale-95 pointer-events-none my-auto">
+            <div class="khadi-patrika rounded-xl p-6 sm:p-9 text-center">
+
+                <!-- Ornate Traditional Corner Motifs -->
+                <svg class="w-10 h-10 absolute top-3 left-3 text-[#8c1d0f]" viewBox="0 0 50 50" fill="currentColor">
+                    <path d="M2 2 L35 2 L35 6 L6 6 L6 35 L2 35 Z M12 12 C24 12 32 20 32 32 C20 32 12 24 12 12 Z" />
+                </svg>
+                <svg class="w-10 h-10 absolute top-3 right-3 text-[#8c1d0f] scale-x-[-1]" viewBox="0 0 50 50"
+                    fill="currentColor">
+                    <path d="M2 2 L35 2 L35 6 L6 6 L6 35 L2 35 Z M12 12 C24 12 32 20 32 32 C20 32 12 24 12 12 Z" />
+                </svg>
+                <svg class="w-10 h-10 absolute bottom-3 left-3 text-[#8c1d0f] scale-y-[-1]" viewBox="0 0 50 50"
+                    fill="currentColor">
+                    <path d="M2 2 L35 2 L35 6 L6 6 L6 35 L2 35 Z M12 12 C24 12 32 20 32 32 C20 32 12 24 12 12 Z" />
+                </svg>
+                <svg class="w-10 h-10 absolute bottom-3 right-3 text-[#8c1d0f] scale-[-1]" viewBox="0 0 50 50"
+                    fill="currentColor">
+                    <path d="M2 2 L35 2 L35 6 L6 6 L6 35 L2 35 Z M12 12 C24 12 32 20 32 32 C20 32 12 24 12 12 Z" />
+                </svg>
+
+                <!-- Sanskrit Mangalacharan Header -->
+                <p class="font-devanagari text-[#8c1d0f] text-sm sm:text-base font-bold tracking-widest mb-1">
+                    ॥ શ્રી મહાલક્ષ્મ્યૈ નમઃ • શુભ દિવાળી ॥
+                </p>
+                <div class="w-40 h-0.5 mx-auto bg-gradient-to-r from-transparent via-[#b58326] to-transparent mb-4">
+                </div>
+
+                <!-- Hand-Painted Terracotta Matki Diya Illustration -->
+                <div class="relative w-24 h-24 mx-auto mb-2 flex items-center justify-center">
+                    <div class="absolute inset-0 rounded-full bg-amber-500/35 blur-xl animate-pulse"></div>
+                    <svg class="w-24 h-24 relative z-10" viewBox="0 0 120 120">
+                        <g class="flame-group flame-lit">
+                            <path d="M60 10 C77 33 80 52 60 65 C40 52 43 33 60 10 Z" fill="#ff6a00" />
+                            <path d="M60 22 C71 39 73 52 60 62 C47 52 49 39 60 22 Z" fill="#ffd000" />
+                            <path d="M60 35 C65 45 66 53 60 59 C54 53 55 45 60 35 Z" fill="#ffffff" />
+                            <ellipse cx="60" cy="58" rx="4.5" ry="2.5" fill="#38bdf8" opacity="0.8" />
+                        </g>
+                        <!-- Terracotta Clay Bowl with White & Gold Folk Dots -->
+                        <path d="M16 65 Q60 112 104 65 L92 58 Q60 72 28 58 Z" fill="#9a2b15" stroke="#d4a843"
+                            stroke-width="2.5" />
+                        <path d="M28 58 Q60 49 92 58 Q60 70 28 58 Z" fill="#5c1609" stroke="#f6e095"
+                            stroke-width="1.5" />
+                        <path d="M28 74 L40 84 L50 74 L60 86 L70 74 L80 84 L92 74" fill="none" stroke="#fef3c7"
+                            stroke-width="1.8" />
+                        <circle cx="60" cy="75" r="2.8" fill="#fde047" />
+                        <circle cx="44" cy="72" r="2.2" fill="#fde047" />
+                        <circle cx="76" cy="72" r="2.2" fill="#fde047" />
+                    </svg>
+                </div>
+
+                <h2 class="font-royal text-2xl sm:text-3xl font-bold text-[#6e1006] mb-1">
+                    સ્નેહ નિમંત્રણ • Festive Patrika
+                </h2>
+                <p class="text-[#592316] text-base sm:text-lg italic mb-5 leading-snug px-2">
+                    Inscribe your good name on this traditional Patrika to light the courtyard diyas and receive your
+                    Deepavali blessing.
+                </p>
+
+                <form id="name-form" onsubmit="handleNameSubmit(event)" class="space-y-4">
+                    <div class="relative">
+                        <input type="text" id="user-name-input" maxlength="32"
+                            placeholder="તમારું નામ લખો • Enter your name..." autocomplete="off"
+                            class="w-full px-5 py-3.5 rounded-lg bg-[#fffdf7] border-2 border-[#b58326] focus:border-[#8c1d0f] focus:outline-none focus:ring-4 focus:ring-[#d4a843]/40 text-center text-xl font-bold text-[#4a1005] placeholder-[#9c6b4e]/70 shadow-inner transition-all" />
+                    </div>
+                    <p id="name-error" class="text-[#b91c1c] font-bold text-sm hidden">
+                        🪔 કૃપા કરીને તમારું નામ લખો • Please enter your name to light the Diyas!
+                    </p>
+
+                    <button type="submit"
+                        class="btn-sindoor w-full py-3.5 px-6 rounded-xl font-bold text-lg tracking-wide cursor-pointer flex items-center justify-center gap-2">
+                        <span>🪔 દીવા પ્રગટાવો • Light the Diyas</span>
+                    </button>
+                </form>
+
+                <p class="text-xs text-[#7c4329] mt-4 italic">
+                    ✨ Move your cursor or finger across the screen to wave a golden Phuljhari sparkler!
+                </p>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------
+             STAGE 3: PERSONALIZED COURTYARD PUJA THALI, RANGOLI & SCROLL
+             ------------------------------------------------- -->
+        <section id="wish-stage" class="w-full max-w-3xl hidden opacity-0 scale-95 transition-all duration-700 my-auto">
+            <div class="royal-mandapa-card rounded-2xl p-5 sm:p-8 text-center relative overflow-hidden">
+
+                <!-- Dynamic Warm Diya Firelight Glow Overlay -->
+                <div id="ambient-diya-glow" class="absolute inset-0 pointer-events-none transition-opacity duration-500"
+                    style="background: radial-gradient(circle at 50% 52%, rgba(255, 160, 20, 0.26), transparent 70%);">
+                </div>
+
+                <!-- Auspicious Sanskrit Header -->
+                <div
+                    class="relative z-10 flex items-center justify-center gap-2 text-[#f6e095] text-xs sm:text-sm font-devanagari tracking-widest mb-1">
+                    <span>❈</span>
+                    <span>॥ દીપજ્યોતિઃ પરબ્રહ્મ દીપજ્યોતિર્જનાર્દનઃ ॥</span>
+                    <span>❈</span>
+                </div>
+
+                <!-- Grand Calligraphic Greeting -->
+                <h1
+                    class="relative z-10 font-royal text-2xl sm:text-4xl md:text-5xl font-black molten-gold-text leading-tight">
+                    Shubh Deepavali,
+                </h1>
+                <h2 id="display-user-name"
+                    class="relative z-10 font-hindi text-3xl sm:text-5xl text-[#fff3c4] drop-shadow-[0_4px_18px_rgba(255,150,0,0.75)] mt-0.5 mb-2 break-words">
+                    Dear Friend!
+                </h2>
+
+                <!-- =================================================
+                     INTERACTIVE FLOOR RANGOLI & 5 TERRACOTTA MATKI DIYAS
+                     ================================================= -->
+                <div class="relative z-10 my-2 py-2">
+                    <!-- Intricate Geometric Lotus Floor Rangoli Behind Diyas -->
+                    <div class="relative mx-auto w-full max-w-xl flex flex-col items-center justify-center">
+                        <svg class="w-60 h-20 sm:w-80 sm:h-24 opacity-85 pointer-events-none -mb-14 sm:-mb-16"
+                            viewBox="0 0 360 110">
+                            <defs>
+                                <radialGradient id="rangoliCenter" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#f4b41a" />
+                                    <stop offset="55%" stop-color="#d9381e" />
+                                    <stop offset="100%" stop-color="#5c0d06" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <!-- Perspective Floor Rangoli Ellipse -->
+                            <ellipse cx="180" cy="65" rx="165" ry="38" fill="url(#rangoliCenter)" stroke="#fde047"
+                                stroke-width="1.2" stroke-dasharray="6 4" />
+                            <ellipse cx="180" cy="65" rx="125" ry="28" fill="none" stroke="#fb923c"
+                                stroke-width="1.5" />
+                            <ellipse cx="180" cy="65" rx="80" ry="18" fill="none" stroke="#fef08a" stroke-width="1.2"
+                                stroke-dasharray="4 3" />
+                            <!-- Rice Flour White & Haldi Lotus Petals -->
+                            <path d="M15,65 Q50,42 90,65 Q50,88 15,65 Z" fill="#d9381e" stroke="#fffbeb"
+                                stroke-width="1.2" />
+                            <path d="M345,65 Q310,42 270,65 Q310,88 345,65 Z" fill="#d9381e" stroke="#fffbeb"
+                                stroke-width="1.2" />
+                            <circle cx="180" cy="96" r="3" fill="#fffbeb" />
+                            <circle cx="140" cy="94" r="2.5" fill="#fde047" />
+                            <circle cx="220" cy="94" r="2.5" fill="#fde047" />
+                            <circle cx="100" cy="89" r="2.5" fill="#fffbeb" />
+                            <circle cx="260" cy="89" r="2.5" fill="#fffbeb" />
+                        </svg>
+
+                        <!-- Row of 5 Interactive Hand-Painted Terracotta Diyas -->
+                        <div id="diya-row"
+                            class="flex items-end justify-center gap-2 sm:gap-5 md:gap-7 relative z-20 px-2">
+                            <!-- Populated & Interactive via JS -->
+                        </div>
+                    </div>
+
+                    <p id="diya-status-hint" class="text-[#f6e095]/90 text-xs sm:text-sm mt-2 font-medium">
+                        🪔 <span id="lit-count-text">3 of 5 Diyas Lit</span> — Tap any clay Diya to light or stoke its
+                        sacred flame!
+                    </p>
+                </div>
+
+                <!-- =================================================
+                     HANDMADE PARCHMENT SCROLL FOR AUTHENTIC BLESSINGS
+                     ================================================= -->
+                <div class="relative z-10 my-3 mx-auto max-w-2xl">
+                    <div class="scroll-roller"></div>
+                    <div class="parchment-scroll px-5 py-4 sm:px-8 sm:py-5">
+                        <p id="diwali-quote-hindi"
+                            class="font-devanagari text-[#8c1d0f] text-xs sm:text-sm font-bold tracking-wider mb-1">
+                            ॥ દીપોત્સવની હાર્દિક શુભેચ્છાઓ ॥
+                        </p>
+                        <p id="diwali-quote-text"
+                            class="text-base sm:text-xl md:text-2xl text-[#360d04] font-semibold italic leading-relaxed transition-opacity duration-300 min-h-[4.2rem] flex items-center justify-center">
+                            "May the warm glow of earthen diyas, the fragrance of fresh marigolds, and the sweetness of
+                            home-made mithai fill your courtyard with timeless peace and abundance."
+                        </p>
+                        <p id="diwali-quote-sub"
+                            class="text-xs sm:text-sm text-[#7a2e12] font-bold tracking-widest uppercase mt-2">
+                            — સુખ, શાંતિ અને સમૃદ્ધિ • Ghar Ki Diwali —
+                        </p>
+                        <!-- Scroll Pagination Dots -->
+                        <div id="quote-dots" class="flex justify-center gap-2 mt-2.5"></div>
+                    </div>
+                    <div class="scroll-roller"></div>
+                </div>
+
+                <!-- =================================================
+                     TRADITIONAL FESTIVE CONTROLS
+                     ================================================= -->
+                <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+                    <button onclick="nextQuote()"
+                        class="btn-brass py-3 px-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                        <span>📜 આગળનો આશીર્વાદ • Next Wish</span>
+                    </button>
+
+                    <button onclick="triggerTraditionalAatishbazi()"
+                        class="btn-sindoor py-3 px-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                        <span>🎇 અનાર અને ચકરી • Anar & Chakri</span>
+                    </button>
+
+                    <button onclick="copyGreetingToClipboard()"
+                        class="btn-brass py-3 px-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                        <span>📋 સંદેશ કૉપી • Copy Patrika</span>
+                    </button>
+                </div>
+
+                <!-- Secondary Link to Inscribe Another Name -->
+                <div
+                    class="relative z-10 mt-3 flex items-center justify-center gap-4 text-xs sm:text-sm text-[#f6e095]/80">
+                    <button onclick="lightAllDiyas()" class="hover:text-[#fff6cc] underline cursor-pointer">
+                        🪔 Light All 5 Diyas
+                    </button>
+                    <span>•</span>
+                    <button onclick="resetToNameStage()" class="hover:text-[#fff6cc] underline cursor-pointer">
+                        ✍️ Inscribe Another Name
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         TOAST NOTIFICATION BANNER
+         ===================================================== -->
+        <footer id="site-footer">
+        <p>Made with ❤️ by Sujal</p>
+        <div class="soc" id="soc"></div>
+    </footer>
+
+    <div id="toast-box"
+        class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-xl bg-[#2e0904] border-2 border-[#f6e095] text-[#fff3c4] text-sm sm:text-base font-semibold shadow-[0_15px_35px_rgba(0,0,0,0.95)] opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2.5">
+        <span>🪔</span>
+        <span id="toast-message">Blessing copied to clipboard!</span>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT: HERITAGE AUDIO, DIYAS, ANAR, CHAKRI & PHULJHARI
+         ===================================================== -->
+    <script>
+        /* -----------------------------------------------------
+           1. AUTHENTIC POETIC DIWALI BLESSINGS & SUBHASHITAS
+           ----------------------------------------------------- */
+        const DIWALI_QUOTES = [
+            {
+                hindi: "॥ શુભં કરોતિ કલ્યાણં આરોગ્યં ધનસંપદા ॥",
+                quote: "May the warm glow of earthen diyas, the fragrance of fresh marigolds, and the sweetness of home-made mithai fill your courtyard with timeless peace and abundance.",
+                blessing: "સુખ, શાંતિ અને સમૃદ્ધિ • Ghar Ki Diwali"
+            },
+            {
+                hindi: "॥ તમસો મા જ્યોતિર્ગમય ॥",
+                quote: "Just as a single clay lamp quietly turns the darkest Amavasya night into gold, may wisdom, kindness, and steady hope illuminate every path you walk.",
+                blessing: "અંધકારમાંથી પ્રકાશ તરફ • Eternal Radiance"
+            },
+            {
+                hindi: "॥ મહાલક્ષ્મી નમસ્તુભ્યં નમસ્તુભ્યં સુરેશ્વરી ॥",
+                quote: "May Goddess Lakshmi grace your threshold with auspiciousness and Lord Ganesha remove every obstacle, bringing harmony and laughter to your family table.",
+                blessing: "શુભ લાભ • Blessings of Prosperity"
+            },
+            {
+                hindi: "॥ દીપોત્સવઃ સર્વસુખપ્રદાયકઃ ॥",
+                quote: "From the crackle of golden Phuljharis in our hands to the rangoli at our doorstep, may the nostalgia and warmth of tradition stay alive in your heart all year long.",
+                blessing: "મંગલમય દિવાળી • Joy & Togetherness"
+            },
+            {
+                hindi: "॥ સર્વે ભવન્તુ સુખિનઃ સર્વે સન્તુ નિરામયાઃ ॥",
+                quote: "May every earthen lamp you light tonight become a prayer answered, a bond strengthened, and a new beginning blessed with good health and golden fortune.",
+                blessing: "આરોગ્યં ધનસંપદા • Health & Fortune"
+            }
+        ];
+
+        let currentUserName = "મિત્ર (Dear Friend)";
+        let currentQuoteIndex = 0;
+        let curtainsOpened = false;
+        let celebrationActive = false;
+
+        // State for the 5 Interactive Terracotta Matki Diyas (True = Lit, False = Unlit)
+        let diyaStates = [true, false, true, false, true];
+
+        /* -----------------------------------------------------
+           2. WEB AUDIO SYNTHESIZER: TEMPLE BELLS, TANPURA & SPARKLER
+           ----------------------------------------------------- */
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) audioCtx = new AudioContextClass();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function toggleAudio() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-icon').textContent = soundEnabled ? '🔔' : '🔕';
+            document.getElementById('sound-label').textContent = soundEnabled ? 'નાદ • Sound On' : 'મૌન • Muted';
+            if (soundEnabled) {
+                initAudio();
+                playTempleBellSound(528, 1.4);
+            }
+        }
+
+        // Authentic Metallic Brass Temple Bell (Ghanti) with Inharmonic Overtones
+        function playTempleBellSound(baseFreq = 528, duration = 2.0) {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                if (!audioCtx) return;
+
+                const now = audioCtx.currentTime;
+                const partials = [1.0, 2.0, 2.76, 4.07, 5.4];
+                const gains = [0.16, 0.10, 0.06, 0.03, 0.015];
+
+                partials.forEach((ratio, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
+                    osc.frequency.setValueAtTime(baseFreq * ratio, now);
+
+                    gain.gain.setValueAtTime(gains[idx], now);
+                    gain.gain.exponentialRampToValueAtTime(0.0004, now + duration / (idx * 0.6 + 1));
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(now);
+                    osc.stop(now + duration);
+                });
+            } catch (e) { }
+        }
+
+        function ringTempleBell(btnEl, freq) {
+            btnEl.classList.remove('ringing');
+            void btnEl.offsetWidth;
+            btnEl.classList.add('ringing');
+            playTempleBellSound(freq, 2.2);
+
+            const rect = btnEl.getBoundingClientRect();
+            spawnSparklerEmbers(rect.left + rect.width / 2, rect.bottom - 15, 16);
+        }
+
+        // Auspicious Sitar/Swarmandal Sargam Chord when Curtains Part
+        function playSargamArpeggio() {
+            if (!soundEnabled) return;
+            // Yaman Raga / Auspicious Indian scale notes
+            const sargam = [261.63, 293.66, 329.63, 370.00, 392.00, 493.88, 523.25];
+            sargam.forEach((freq, i) => {
+                setTimeout(() => playTempleBellSound(freq, 1.6), i * 115);
+            });
+        }
+
+        // Soft Firework & Anar Crackle Pop
+        function playFireworkPopSound(pitch = 300) {
+            if (!soundEnabled || !audioCtx) return;
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(pitch + Math.random() * 180, now);
+                osc.frequency.exponentialRampToValueAtTime(48, now + 0.16);
+                gain.gain.setValueAtTime(0.06, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.16);
+            } catch (e) { }
+        }
+
+        /* -----------------------------------------------------
+           3. INTERACTIVE 5 TERRACOTTA DIYAS & RANGOLI RENDERER
+           ----------------------------------------------------- */
+        function renderInteractiveDiyas() {
+            const row = document.getElementById('diya-row');
+            if (!row) return;
+            row.innerHTML = '';
+
+            diyaStates.forEach((isLit, idx) => {
+                const isCenter = idx === 2;
+                const sizeClass = isCenter ? 'w-20 h-20 sm:w-24 sm:h-24 -mt-2' : 'w-14 h-14 sm:w-18 sm:h-18';
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `group relative focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 ${sizeClass}`;
+                btn.title = isLit ? 'Click to Stoke Flame & Spark Blessings!' : 'Click to Light this Clay Diya!';
+                btn.onclick = (e) => toggleOrStokeDiya(e, idx);
+
+                btn.innerHTML = `
+                    <div class="absolute -inset-2 rounded-full bg-amber-500/30 blur-lg transition-opacity duration-500 ${isLit ? 'opacity-100' : 'opacity-0'}"></div>
+                    <svg class="w-full h-full relative z-10 overflow-visible" viewBox="0 0 120 120">
+                        <!-- Multi-layered Realistic Teardrop Flame -->
+                        <g class="flame-group ${isLit ? 'flame-lit' : 'flame-unlit'}">
+                            <!-- Outer Saffron Halo -->
+                            <path d="M60 8 C78 32 82 52 60 66 C38 52 42 32 60 8 Z" fill="#ff5500" opacity="0.9"/>
+                            <!-- Middle Golden Body -->
+                            <path d="M60 20 C72 38 74 52 60 63 C46 52 48 38 60 20 Z" fill="#ffcc00"/>
+                            <!-- Inner White-Hot Core -->
+                            <path d="M60 34 C66 45 67 53 60 60 C53 53 54 45 60 34 Z" fill="#fffef5"/>
+                            <!-- Blue Base Wick Glow -->
+                            <ellipse cx="60" cy="59" rx="5" ry="2.8" fill="#38bdf8" opacity="0.8"/>
+                        </g>
+                        <!-- Cotton Batti (Wick) -->
+                        <path d="M58 65 L60 57 L62 65 Z" fill="#451a03"/>
+                        <!-- Hand-Painted Terracotta Clay Bowl -->
+                        <path d="M16 65 Q60 112 104 65 L92 58 Q60 72 28 58 Z" fill="${isCenter ? '#a82411' : '#8c2d14'}" stroke="#f6e095" stroke-width="2.5"/>
+                        <!-- Oil Reservoir Inside Diya -->
+                        <path d="M28 58 Q60 49 92 58 Q60 70 28 58 Z" fill="#5e1908" stroke="#d4a843" stroke-width="1.5"/>
+                        <!-- Traditional Folk Art Chalk & Haldi Borders -->
+                        <path d="M28 74 L40 85 L50 74 L60 87 L70 74 L80 85 L92 74" fill="none" stroke="#fef3c7" stroke-width="1.8"/>
+                        <circle cx="60" cy="76" r="3" fill="#fde047"/>
+                        <circle cx="43" cy="72" r="2.2" fill="#fde047"/>
+                        <circle cx="77" cy="72" r="2.2" fill="#fde047"/>
+                    </svg>
+                `;
+                row.appendChild(btn);
+            });
+
+            updateDiyaLuminosity();
+        }
+
+        function toggleOrStokeDiya(event, index) {
+            event.stopPropagation();
+            const rect = event.currentTarget.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 3;
+
+            if (!diyaStates[index]) {
+                // Light unlit diya
+                diyaStates[index] = true;
+                playTempleBellSound(528 + index * 65, 1.5);
+                spawnSparklerEmbers(cx, cy, 32);
+                if (diyaStates.every(Boolean)) {
+                    showToast('શુભ દિવાળી! All 5 Sacred Diyas are now glowing brightly!');
+                    triggerTraditionalAatishbazi();
+                }
+            } else {
+                // Already lit -> stoke flame with golden sparks
+                playTempleBellSound(660 + index * 55, 1.2);
+                spawnSparklerEmbers(cx, cy, 26);
+            }
+
+            renderInteractiveDiyas();
+        }
+
+        function lightAllDiyas() {
+            diyaStates = [true, true, true, true, true];
+            renderInteractiveDiyas();
+            playSargamArpeggio();
+            triggerTraditionalAatishbazi();
+            showToast('All 5 Terracotta Diyas lit with auspicious blessings!');
+        }
+
+        function updateDiyaLuminosity() {
+            const litCount = diyaStates.filter(Boolean).length;
+            const countText = document.getElementById('lit-count-text');
+            if (countText) {
+                countText.textContent = litCount === 5
+                    ? 'All 5 Sacred Diyas Glowing Brightly!'
+                    : `${litCount} of 5 Diyas Lit`;
+            }
+            const glowEl = document.getElementById('ambient-diya-glow');
+            if (glowEl) {
+                const intensity = 0.1 + (litCount / 5) * 0.32;
+                glowEl.style.background = `radial-gradient(circle at 50% 52%, rgba(255, 165, 25, ${intensity}), transparent 72%)`;
+            }
+        }
+
+        /* -----------------------------------------------------
+           4. STAGE TRANSITIONS (Curtain -> Patrika -> Puja Thali)
+           ----------------------------------------------------- */
+        function openCurtains() {
+            if (curtainsOpened) return;
+            curtainsOpened = true;
+
+            playSargamArpeggio();
+
+            const curtainStage = document.getElementById('curtain-stage');
+            curtainStage.classList.add('opened');
+
+            // Shower of golden sparkler embers as silk cord unties
+            spawnSparklerEmbers(window.innerWidth / 2, window.innerHeight / 2, 55);
+
+            const nameStage = document.getElementById('name-stage');
+            setTimeout(() => {
+                nameStage.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                nameStage.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+                const input = document.getElementById('user-name-input');
+                if (input) input.focus();
+            }, 650);
+        }
+
+        function handleNameSubmit(event) {
+            event.preventDefault();
+            const inputEl = document.getElementById('user-name-input');
+            const errorEl = document.getElementById('name-error');
+            const rawName = inputEl.value.trim();
+
+            if (!rawName) {
+                errorEl.classList.remove('hidden');
+                playTempleBellSound(240, 0.6);
+                return;
+            }
+
+            errorEl.classList.add('hidden');
+            currentUserName = rawName;
+            document.getElementById('display-user-name').textContent = `${currentUserName}!`;
+
+            playSargamArpeggio();
+
+            const nameStage = document.getElementById('name-stage');
+            const wishStage = document.getElementById('wish-stage');
+
+            nameStage.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+            nameStage.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+
+            setTimeout(() => {
+                nameStage.classList.add('hidden');
+                wishStage.classList.remove('hidden');
+                void wishStage.offsetWidth;
+                wishStage.classList.remove('opacity-0', 'scale-95');
+                wishStage.classList.add('opacity-100', 'scale-100');
+
+                celebrationActive = true;
+                renderInteractiveDiyas();
+                renderQuoteDots();
+                updateQuoteDisplay(0);
+                triggerTraditionalAatishbazi();
+            }, 450);
+        }
+
+        function resetToNameStage() {
+            playTempleBellSound(528, 0.9);
+            const nameStage = document.getElementById('name-stage');
+            const wishStage = document.getElementById('wish-stage');
+
+            wishStage.classList.remove('opacity-100', 'scale-100');
+            wishStage.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                wishStage.classList.add('hidden');
+                nameStage.classList.remove('hidden');
+                void nameStage.offsetWidth;
+                nameStage.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                nameStage.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+                const input = document.getElementById('user-name-input');
+                input.value = '';
+                input.focus();
+            }, 400);
+        }
+
+        /* -----------------------------------------------------
+           5. PARCHMENT SCROLL BLESSINGS & CLIPBOARD SHARE
+           ----------------------------------------------------- */
+        function renderQuoteDots() {
+            const dotsContainer = document.getElementById('quote-dots');
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            DIWALI_QUOTES.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `h-2 rounded-full transition-all duration-300 ${idx === currentQuoteIndex ? 'w-6 bg-[#8c1d0f]' : 'w-2 bg-[#8c1d0f]/35 hover:bg-[#8c1d0f]/65'
+                    }`;
+                dot.onclick = () => updateQuoteDisplay(idx);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateQuoteDisplay(index) {
+            currentQuoteIndex = (index + DIWALI_QUOTES.length) % DIWALI_QUOTES.length;
+            const quoteTextEl = document.getElementById('diwali-quote-text');
+            const quoteSubEl = document.getElementById('diwali-quote-sub');
+            const quoteHindiEl = document.getElementById('diwali-quote-hindi');
+
+            quoteTextEl.style.opacity = '0';
+            setTimeout(() => {
+                const item = DIWALI_QUOTES[currentQuoteIndex];
+                quoteHindiEl.textContent = item.hindi;
+                quoteTextEl.textContent = `"${item.quote}"`;
+                quoteSubEl.textContent = `— ${item.blessing} —`;
+                quoteTextEl.style.opacity = '1';
+                renderQuoteDots();
+            }, 220);
+        }
+
+        function nextQuote() {
+            playTempleBellSound(660, 1.1);
+            updateQuoteDisplay(currentQuoteIndex + 1);
+            launchSkyWillowRocket();
+        }
+
+        function copyGreetingToClipboard() {
+            const item = DIWALI_QUOTES[currentQuoteIndex];
+            const messageToCopy = `${item.hindi}\n🪔✨ શુભ દિવાળી • Shubh Deepavali, ${currentUserName}! ✨🪔\n\n"${item.quote}"\n\n— ${item.blessing}`;
+
+            const textArea = document.createElement('textarea');
+            textArea.value = messageToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showToast('સંદેશ કૉપી થઈ ગયો! Festive Patrika copied to clipboard.');
+                playTempleBellSound(784, 1.1);
+            } catch (err) {
+                showToast('Could not copy automatically.');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-box');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
+
+        /* -----------------------------------------------------
+           6. REALISTIC INDIAN FIREWORKS ENGINE:
+              Phuljhari (Sparkler), Anar (Flowerpot), Zameen Chakri & Sky Willow
+           ----------------------------------------------------- */
+        const canvas = document.getElementById('festive-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let cw = window.innerWidth;
+        let ch = window.innerHeight;
+
+        const kandils = [];
+        const rockets = [];
+        const sparks = [];
+        const anarFountains = [];
+        const chakriSpinners = [];
+
+        const HERITAGE_SPARK_COLORS = [
+            '#ffd700', // Haldi Gold
+            '#ff9914', // Marigold Saffron
+            '#fff6cc', // Magnesium White-Gold
+            '#ff4d00', // Sindoor Vermilion
+            '#2ec4b6'  // Peacock Emerald Accent
+        ];
+
+        function resizeCanvas() {
+            cw = window.innerWidth;
+            ch = window.innerHeight;
+            canvas.width = cw;
+            canvas.height = ch;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Initialize Traditional Octagonal Floating Akash Kandils (Paper Lanterns)
+        for (let i = 0; i < 12; i++) {
+            kandils.push({
+                x: Math.random() * cw,
+                y: Math.random() * ch,
+                size: Math.random() * 13 + 11,
+                speedY: Math.random() * 0.35 + 0.18,
+                swayAmp: Math.random() * 0.4 + 0.15,
+                swaySpeed: Math.random() * 0.018 + 0.008,
+                phase: Math.random() * Math.PI * 2,
+                hue: Math.random() > 0.4 ? '#d9531e' : '#e69b17'
+            });
+        }
+
+        // Phuljhari (Hand Sparkler) Sputtering Magnesium Embers on Pointer Move
+        function spawnSparklerEmbers(x, y, count = 5) {
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4.2 + 0.8;
+                sparks.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 0.6,
+                    alpha: 1,
+                    decay: Math.random() * 0.03 + 0.02,
+                    color: Math.random() > 0.3 ? '#fff5c0' : '#ff9900',
+                    size: Math.random() * 2.0 + 0.9,
+                    isSparkler: true
+                });
+            }
+        }
+
+        window.addEventListener('pointermove', (e) => {
+            spawnSparklerEmbers(e.clientX, e.clientY, 3);
+        });
+
+        // Click anywhere in courtyard sky to burst a Golden Willow shell
+        window.addEventListener('pointerdown', (e) => {
+            if (!curtainsOpened) return;
+            const tag = e.target.tagName.toLowerCase();
+            if (tag !== 'button' && tag !== 'input' && !e.target.closest('button') && !e.target.closest('a')) {
+                createWillowBurst(e.clientX, e.clientY);
+            }
+        });
+
+        // Launch a Sky Rocket
+        function launchSkyWillowRocket(targetX, targetY) {
+            const startX = cw * 0.2 + Math.random() * (cw * 0.6);
+            const tx = targetX !== undefined ? targetX : cw * 0.15 + Math.random() * (cw * 0.7);
+            const ty = targetY !== undefined ? targetY : ch * 0.14 + Math.random() * (ch * 0.36);
+
+            const angle = Math.atan2(ty - ch, tx - startX);
+            const speed = 11.5 + Math.random() * 3.5;
+
+            rockets.push({
+                x: startX,
+                y: ch,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                targetY: ty,
+                color: '#ffd700',
+                trail: []
+            });
+        }
+
+        // Golden Willow & Brocade Sky Shell Burst
+        function createWillowBurst(x, y) {
+            playFireworkPopSound(260);
+            const count = 75;
+            const mainColor = HERITAGE_SPARK_COLORS[Math.floor(Math.random() * HERITAGE_SPARK_COLORS.length)];
+
+            for (let i = 0; i < count; i++) {
+                const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.15;
+                const speed = Math.random() * 5.5 + 1.2;
+                sparks.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    alpha: 1,
+                    decay: Math.random() * 0.014 + 0.009,
+                    color: Math.random() > 0.3 ? mainColor : '#fff7d6',
+                    size: Math.random() * 2.4 + 1.1,
+                    isSparkler: false
+                });
+            }
+        }
+
+        // Authentic Indian ANAR (Flowerpot Fountain) & ZAMEEN CHAKRI (Ground Spinner)
+        function triggerTraditionalAatishbazi() {
+            playFireworkPopSound(340);
+
+            // 1. Spawn two ground Anar (Flowerpot) fountains on left and right courtyard floor
+            anarFountains.push(
+                { x: cw * 0.14, y: ch - 18, life: 130 },
+                { x: cw * 0.86, y: ch - 18, life: 130 }
+            );
+
+            // 2. Spawn a spinning Zameen Chakri (Ground Wheel) near bottom-center
+            chakriSpinners.push({
+                x: cw * 0.5,
+                y: ch - 28,
+                angle: 0,
+                life: 125
+            });
+
+            // 3. Also launch two golden sky shells
+            setTimeout(() => launchSkyWillowRocket(), 180);
+            setTimeout(() => launchSkyWillowRocket(), 480);
+        }
+
+        // Main 60FPS Heritage Courtyard Animation Loop
+        function animateCourtyard() {
+            requestAnimationFrame(animateCourtyard);
+
+            ctx.clearRect(0, 0, cw, ch);
+
+            // 1. Draw Traditional Floating Akash Kandils with Hanging Streamers
+            for (let k of kandils) {
+                k.y -= k.speedY;
+                k.phase += k.swaySpeed;
+                k.x += Math.sin(k.phase) * k.swayAmp;
+
+                if (k.y < -60) {
+                    k.y = ch + 50;
+                    k.x = Math.random() * cw;
+                }
+
+                ctx.save();
+                ctx.translate(k.x, k.y);
+                ctx.rotate(Math.sin(k.phase) * 0.05);
+
+                // Warm Candlelight Halo
+                const grad = ctx.createRadialGradient(0, 0, 2, 0, 0, k.size * 2.1);
+                grad.addColorStop(0, 'rgba(255, 195, 70, 0.48)');
+                grad.addColorStop(1, 'rgba(255, 100, 0, 0)');
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, k.size * 2.1, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Octagonal Traditional Kandil Body
+                const s = k.size;
+                ctx.fillStyle = k.hue;
+                ctx.strokeStyle = '#fde047';
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.moveTo(-s * 0.35, -s * 0.65);
+                ctx.lineTo(s * 0.35, -s * 0.65);
+                ctx.lineTo(s * 0.55, 0);
+                ctx.lineTo(s * 0.35, s * 0.65);
+                ctx.lineTo(-s * 0.35, s * 0.65);
+                ctx.lineTo(-s * 0.55, 0);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                // Hanging Silk Streamer Tails below Kandil
+                ctx.strokeStyle = 'rgba(253, 224, 71, 0.65)';
+                ctx.lineWidth = 1;
+                for (let t = -1; t <= 1; t++) {
+                    ctx.beginPath();
+                    ctx.moveTo(t * s * 0.22, s * 0.65);
+                    ctx.quadraticCurveTo(
+                        t * s * 0.22 + Math.sin(k.phase + t) * 4,
+                        s * 1.1,
+                        t * s * 0.22,
+                        s * 1.45
+                    );
+                    ctx.stroke();
+                }
+
+                // Inner Diya Core
+                ctx.fillStyle = '#fffbeb';
+                ctx.beginPath();
+                ctx.arc(0, s * 0.1, s * 0.18, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            // 2. Ambient Sky Fireworks During Celebration Stage
+            if (celebrationActive && Math.random() < 0.022) {
+                launchSkyWillowRocket();
+            }
+
+            // 3. Update & Draw Active ANAR (Flowerpot Fountains)
+            for (let i = anarFountains.length - 1; i >= 0; i--) {
+                const anar = anarFountains[i];
+                anar.life--;
+
+                // Draw Conical Clay Anar Pot at Bottom
+                ctx.save();
+                ctx.fillStyle = '#b45309';
+                ctx.strokeStyle = '#fde047';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(anar.x - 12, anar.y);
+                ctx.lineTo(anar.x - 4, anar.y - 22);
+                ctx.lineTo(anar.x + 4, anar.y - 22);
+                ctx.lineTo(anar.x + 12, anar.y);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+
+                // Erupt upward fountain sparks
+                for (let s = 0; s < 4; s++) {
+                    const spread = (Math.random() - 0.5) * 0.48;
+                    const speed = Math.random() * 7.5 + 5.5;
+                    sparks.push({
+                        x: anar.x,
+                        y: anar.y - 22,
+                        vx: Math.sin(spread) * speed,
+                        vy: -Math.cos(spread) * speed,
+                        alpha: 1,
+                        decay: Math.random() * 0.018 + 0.012,
+                        color: Math.random() > 0.35 ? '#ffd700' : '#fffbeb',
+                        size: Math.random() * 2.5 + 1.2,
+                        isSparkler: false
+                    });
+                }
+
+                if (anar.life <= 0) anarFountains.splice(i, 1);
+            }
+
+            // 4. Update & Draw Active ZAMEEN CHAKRI (Ground Spinner)
+            for (let i = chakriSpinners.length - 1; i >= 0; i--) {
+                const chakri = chakriSpinners[i];
+                chakri.life--;
+                chakri.angle += 0.45;
+
+                // Draw glowing spinning wheel disc
+                ctx.save();
+                ctx.translate(chakri.x, chakri.y);
+                ctx.rotate(chakri.angle);
+                ctx.strokeStyle = '#fff5cc';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.arc(0, 0, 10, 0, Math.PI * 1.5);
+                ctx.stroke();
+                ctx.restore();
+
+                // Tangential spiral sparks
+                for (let k = 0; k < 3; k++) {
+                    const a = chakri.angle + (k * Math.PI * 2) / 3;
+                    const spd = 4.5 + Math.random() * 2.5;
+                    sparks.push({
+                        x: chakri.x + Math.cos(a) * 8,
+                        y: chakri.y + Math.sin(a) * 4,
+                        vx: Math.cos(a + Math.PI / 2) * spd,
+                        vy: Math.sin(a + Math.PI / 2) * spd * 0.5 - 1.2,
+                        alpha: 1,
+                        decay: 0.032,
+                        color: k % 2 === 0 ? '#ffd700' : '#ff5400',
+                        size: 2.0,
+                        isSparkler: true
+                    });
+                }
+
+                if (chakri.life <= 0) chakriSpinners.splice(i, 1);
+            }
+
+            // 5. Update & Draw Sky Rockets
+            for (let i = rockets.length - 1; i >= 0; i--) {
+                const r = rockets[i];
+                r.trail.push({ x: r.x, y: r.y });
+                if (r.trail.length > 9) r.trail.shift();
+
+                r.x += r.vx;
+                r.y += r.vy;
+                r.vy += 0.13;
+
+                ctx.beginPath();
+                for (let t = 0; t < r.trail.length; t++) {
+                    const pt = r.trail[t];
+                    if (t === 0) ctx.moveTo(pt.x, pt.y);
+                    else ctx.lineTo(pt.x, pt.y);
+                }
+                ctx.strokeStyle = '#fde047';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                if (r.y <= r.targetY || r.vy >= 0) {
+                    createWillowBurst(r.x, r.y);
+                    rockets.splice(i, 1);
+                }
+            }
+
+            // 6. Update & Draw All Sparkler / Anar / Willow Particles
+            for (let i = sparks.length - 1; i >= 0; i--) {
+                const p = sparks[i];
+                const prevX = p.x;
+                const prevY = p.y;
+
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vx *= 0.96;
+                p.vy *= 0.96;
+                p.vy += p.isSparkler ? 0.08 : 0.065;
+                p.alpha -= p.decay;
+
+                // Floor bounce for Anar sparks
+                if (p.y >= ch - 8 && p.vy > 0) {
+                    p.y = ch - 8;
+                    p.vy *= -0.45;
+                }
+
+                if (p.alpha <= 0) {
+                    sparks.splice(i, 1);
+                    continue;
+                }
+
+                ctx.save();
+                ctx.globalAlpha = Math.max(p.alpha, 0);
+                ctx.strokeStyle = p.color;
+                ctx.fillStyle = p.color;
+                ctx.lineWidth = p.size;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(prevX, prevY);
+                ctx.lineTo(p.x, p.y);
+                ctx.stroke();
+
+                // Magnesium Sparkler Crackle Glint
+                if (p.isSparkler && Math.random() < 0.22) {
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x - 4, p.y);
+                    ctx.lineTo(p.x + 4, p.y);
+                    ctx.moveTo(p.x, p.y - 4);
+                    ctx.lineTo(p.x, p.y + 4);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+        }
+
+        
+        /* ===== Footer links: khali link = icon hide ===== */
+        const LINKS = {
+            GitHub: "https://github.com/Jerry-48",
+            Telegram: "",
+            LinkedIn: "https://www.linkedin.com/in/kalena-sujalkumar-06299b377/",
+            Portfolio: "",
+            WhatsApp: ""
+        };
+        const ICON = {
+            GitHub: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
+            Telegram: '<path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/>',
+            LinkedIn: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>',
+            Portfolio: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+            WhatsApp: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>'
+        };
+        document.getElementById('soc').innerHTML = Object.keys(LINKS).filter(k => LINKS[k]).map(k =>
+            `<a href="${LINKS[k]}" target="_blank" rel="noopener" aria-label="${k}" title="${k}"><svg viewBox="0 0 24 24">${ICON[k]}</svg></a>`).join('');
+
+        window.onload = function () {
+            renderInteractiveDiyas();
+            animateCourtyard();
+        };
+    </script>
+</body>
+
+</html>
